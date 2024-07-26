@@ -145,7 +145,6 @@ class UNet(nn.Module):
                 enc_out = self.encoder_outs.pop()
                 enc_out = self.center_crop(enc_out, x)
                 x = torch.cat([x, enc_out], dim=1)
-        # linearly scale the output to [-1, 1]
         x = 2 * x - 1
         return x
     
